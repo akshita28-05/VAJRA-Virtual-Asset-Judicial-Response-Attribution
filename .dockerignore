@@ -1,0 +1,22 @@
+# No .dockerignore existed before this - meaning a host machine's own
+# frontend/node_modules (built for that machine's OS/CPU) could get
+# copied into the Linux build via `COPY frontend/ .` in the Dockerfile,
+# silently overwriting the fresh Linux-compatible node_modules `npm ci`
+# had just installed inside the image. That's a real, very common
+# "works on my machine, breaks in Docker" failure (native binaries like
+# esbuild/rollup are platform-specific) - anyone who ran `npm install`
+# locally before trying `docker compose up --build` would likely hit it.
+
+node_modules/
+frontend/dist/
+backend/.venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+*.db
+backend/vajra.db
+.git/
+.gitignore
+*.log
+data/elliptic/*.csv

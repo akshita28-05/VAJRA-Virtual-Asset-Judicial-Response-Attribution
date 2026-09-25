@@ -1,0 +1,20 @@
+# Node
+node_modules/
+frontend/dist/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Env secrets
+.env
+backend/.env
+
+# Database
+backend/vajra.db
+
+# OS/editor
+.DS_Store
+.vscode/
